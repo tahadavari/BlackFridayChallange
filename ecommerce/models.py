@@ -36,7 +36,7 @@ class ProductCount(models.Model):
 
 
 class Product(models.Model):
-    asin = models.CharField(max_length=200, blank=True, null=True, db_comment='TRIAL')
+    asin = models.CharField(max_length=200,primary_key=True, db_comment='TRIAL')
     title = models.CharField(max_length=1500, blank=True, null=True, db_comment='TRIAL')
     img_url = models.CharField(db_column='imgUrl', max_length=200, blank=True, null=True,
                                db_comment='TRIAL')

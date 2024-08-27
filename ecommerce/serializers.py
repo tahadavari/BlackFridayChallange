@@ -4,14 +4,14 @@ from .models import Basket, Invoice, Product, ProductCount
 
 
 class AddItemToBasketRequestDto(serializers.Serializer):
-    basket_id = serializers.CharField()
-    product_id = serializers.CharField()
-    user_id = serializers.CharField()
+    basket_id = serializers.CharField(source='basket-id')
+    product_id = serializers.CharField(source='product-id')
+    user_id = serializers.CharField(source='user-id')
 
 
 class CheckoutBasketRequestDto(serializers.Serializer):
-    basket_id = serializers.CharField()
-    user_id = serializers.CharField()
+    basket_id = serializers.CharField(source='basket-id')
+    user_id = serializers.CharField(source='user-id')
 
 
 class ProductSerializer(serializers.ModelSerializer):
