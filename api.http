@@ -4,25 +4,26 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "product_id": "B00566S7QC",
-  "basket_id": "2",
-  "user_id": "2"
+  "product-id": "B00566S7QC",
+  "basket-id": "4444s3",
+  "user-id": "4444s3"
 }
 
 ### Checkout Basket
 POST http://localhost:8000/checkout-basket
 Content-Type: application/json
+Accept: application/json
 
 {
-  "basket_id": "example_basket_id",
-  "user_id": "example_user_id"
+  "basket-id": "4444s3",
+  "user-id": "4444s3"
 }
 
 ### Get Categories
 GET http://localhost:8000/categories
 
 ### Get Items by ASIN
-GET http://localhost:8000/items/example_asin
+GET http://localhost:8000/items/B00566S7QC
 
 ### Get Items by Category
-GET http://localhost:8000/categories/example_category
+GET http://localhost:8000/categories/Camcorders

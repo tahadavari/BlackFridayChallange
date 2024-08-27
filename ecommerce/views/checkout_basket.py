@@ -1,11 +1,12 @@
 import json
 
+from django.db import connection
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ecommerce.models import Basket, ProductCount, Invoice
+from ecommerce.models import Basket, ProductCount
 from ecommerce.serializers import CheckoutBasketRequestDto
 
 
@@ -37,10 +38,13 @@ class CheckoutBasketView(APIView):
             item_counts[item.product_id].save()
 
         items_json = json.dumps([item.product_id for item in basket_items])
-        Invoice.objects.create(
-            basket_id=request_data['basket_id'],
-            user_id=request_data['user_id'],
-            items=items_json
-        )
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO "Invoices" ("BasketId", "UserId", "Items")
+                VALUES (%s, %s, %s)
+                """,
+                [request_data['basket_id'], request_data['user_id'], items_json]
+            )
 
         return Response(status=status.HTTP_200_OK)

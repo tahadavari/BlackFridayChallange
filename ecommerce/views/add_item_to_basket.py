@@ -13,11 +13,11 @@ class AddItemToBasketView(APIView):
         serializer.is_valid(raise_exception=True)
         request_data = serializer.validated_data
 
-        product = get_object_or_404(Product, asin=request_data['product-id'])
+        product = get_object_or_404(Product, asin=request_data['product_id'])
         item_exists = Basket.objects.filter(
-            product_id=request_data['product-id'],
-            basket_id=request_data['basket-id'],
-            user_id=request_data['user-id']
+            product_id=request_data['product_id'],
+            basket_id=request_data['basket_id'],
+            user_id=request_data['user_id']
         ).exists()
 
         if item_exists:
@@ -28,10 +28,10 @@ class AddItemToBasketView(APIView):
             return Response("not enough items", status=status.HTTP_412_PRECONDITION_FAILED)
 
         Basket.objects.create(
-            basket_id=request_data['basket-id'],
-            user_id=request_data['user-id'],
+            basket_id=request_data['basket_id'],
+            user_id=request_data['user_id'],
             is_checked_out=False,
-            product_id=request_data['product-id']
+            product_id=request_data['product_id']
         )
 
         return Response(status=status.HTTP_200_OK)

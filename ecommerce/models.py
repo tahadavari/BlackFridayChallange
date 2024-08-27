@@ -2,9 +2,8 @@ from django.db import models
 
 
 class Basket(models.Model):
-    basket_id = models.TextField(db_column='BasketId')
-    product_id = models.TextField(db_column='ProductId',
-                                  primary_key=True)
+    basket_id = models.TextField(db_column='BasketId', primary_key=True)
+    product_id = models.TextField(db_column='ProductId')
     user_id = models.TextField(db_column='UserId')
     is_checked_out = models.BooleanField(db_column='IsCheckedOut')
 
@@ -16,14 +15,14 @@ class Basket(models.Model):
 
 class Invoice(models.Model):
     basket_id = models.TextField(db_column='BasketId')
-    userid = models.TextField(db_column='UserId',
-                              primary_key=True)
+    user_id = models.TextField(db_column='UserId')
     items = models.TextField(db_column='Items')
 
     class Meta:
         managed = False
         db_table = 'Invoices'
-        unique_together = (('userid', 'basket_id'),)
+        unique_together = (('user_id', 'basket_id'),)
+        default_permissions = ()
 
 
 class ProductCount(models.Model):
@@ -36,7 +35,7 @@ class ProductCount(models.Model):
 
 
 class Product(models.Model):
-    asin = models.CharField(max_length=200,primary_key=True, db_comment='TRIAL')
+    asin = models.CharField(max_length=200, primary_key=True, db_comment='TRIAL')
     title = models.CharField(max_length=1500, blank=True, null=True, db_comment='TRIAL')
     img_url = models.CharField(db_column='imgUrl', max_length=200, blank=True, null=True,
                                db_comment='TRIAL')
