@@ -5,8 +5,8 @@ Accept: application/json
 
 {
   "product-id": "B00566S7QC",
-  "basket-id": "4444s3",
-  "user-id": "4444s3"
+  "basket-id": "4444",
+  "user-id": "4444"
 }
 
 ### Checkout Basket
@@ -15,8 +15,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "basket-id": "4444s3",
-  "user-id": "4444s3"
+  "basket-id": "4444",
+  "user-id": "4444"
 }
 
 ### Get Categories
