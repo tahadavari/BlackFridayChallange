@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'BlackFriday.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'blackFriday'),
-        'USER': os.getenv('POSTGRES_USER', 'admin'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'admin'),
+        'NAME': os.getenv('DB_DATABASE', 'blackFriday'),
+        'USER': os.getenv('DB_USERNAME', 'admin'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
         'HOST': os.getenv('DB_HOST', 'db'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
