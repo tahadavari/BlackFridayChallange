@@ -1,4 +1,32 @@
 {
+  "__inputs": [],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.2.3"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -20,7 +48,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 9528,
   "graphTooltip": 0,
-  "id": 1,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -810,12 +838,7 @@
       },
       {
         "allValue": ".*",
-        "current": {
-          "isNone": true,
-          "selected": true,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": {
           "uid": "$datasource"
         },
@@ -837,11 +860,7 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": true,
-          "text": "All",
-          "value": "$__all"
-        },
+        "current": {},
         "datasource": {
           "uid": "$datasource"
         },
@@ -894,8 +913,8 @@
     ]
   },
   "timezone": "",
-  "title": "Dja",
+  "title": "Django Metrics",
   "uid": "O6v4rMpizda",
-  "version": 8,
+  "version": 1,
   "weekStart": ""
 }
