@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /usr/src/app/
 
 # Expose the port the app runs on
-EXPOSE 8000
+EXPOSE 8080
 
 # Command to run on container start
-CMD ["gunicorn", "--bind", ":8000", "BlackFriday.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8080", "BlackFriday.wsgi:application"]

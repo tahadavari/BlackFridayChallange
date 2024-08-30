@@ -3,11 +3,11 @@ version: '3.8'
 services:
   web:
     build: .
-    command: gunicorn --bind 0.0.0.0:8000 BlackFriday.wsgi:application
+    command: gunicorn --bind 0.0.0.0:8080 BlackFriday.wsgi:application
     volumes:
       - .:/usr/src/app
     ports:
-      - "8000:8000"
+      - "8080:8080"
     env_file:
       - .env
 

@@ -1,5 +1,5 @@
 ### Add Item to Basket
-POST http://localhost:8000/add-item-to-basket
+POST http://localhost:8080/add-item-to-basket
 Content-Type: application/json
 Accept: application/json
 
@@ -10,7 +10,7 @@ Accept: application/json
 }
 
 ### Checkout Basket
-POST http://localhost:8000/checkout-basket
+POST http://localhost:8080/checkout-basket
 Content-Type: application/json
 Accept: application/json
 
@@ -20,10 +20,10 @@ Accept: application/json
 }
 
 ### Get Categories
-GET http://localhost:8000/categories
+GET http://localhost:8080/categories
 
 ### Get Items by ASIN
-GET http://localhost:8000/items/B00566S7QC
+GET http://localhost:8080/items/B00566S7QC
 
 ### Get Items by Category
-GET http://localhost:8000/categories/Camcorders
+GET http://localhost:8080/categories/Camcorders
