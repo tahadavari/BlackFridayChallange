@@ -33,8 +33,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/datasources/dashboard.yaml
-      - ./grafana/django-http-metric-dashboard.json:/etc/grafana/provisioning/dashboards/django-http-metric-dashboard.json
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
     depends_on:
       - prometheus
 
